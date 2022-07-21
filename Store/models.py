@@ -15,7 +15,7 @@ class Departamento(models.Model):
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=30)
-    Departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
