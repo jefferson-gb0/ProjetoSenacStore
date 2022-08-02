@@ -10,8 +10,11 @@
     <h1>Categoria</h1>
     <ul>
         {%for cat in categoria%}
-        <li>[{{cat.departamento}}] {{cat.nome}}</li>
+        <li> <a href="/produtos/{{cat.id}}">[{{cat.departamento}}] {{cat.nome}}</a> </li>
+        {%empty%}
+            Nem uma categoria encontrada
         {%endfor%}
+
     </ul>
     
 </body>

@@ -28,7 +28,7 @@ class Produto(models.Model):
     imagem = models.ImageField(upload_to="imagens/")
     preco = models.DecimalField(max_digits=10,decimal_places=2)
     estoque = models.IntegerField()
-    lancameto = models.BooleanField()
+    lancamento = models.BooleanField()
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE)
 
 
