@@ -7,7 +7,7 @@
     <title>Produtos</title>
 </head>
 <body>
-    <h1>Produtos</h1>
+    <h1>Produtos da categoria {{categoria.nome}}</h1>
     <table border="1">
         <tr>
             <th>Nome</th>
@@ -28,6 +28,8 @@
             <td>{% if prod.lancamento == True%}
                 lancamento!
                 {%endif%}
+                {%empty%}
+            Nem uma produto encontrada
             </td>
             
         </tr>

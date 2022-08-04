@@ -1,3 +1,4 @@
+from distutils.errors import DistutilsTemplateError
 from http.client import HTTPResponse
 from math import prod
 from multiprocessing import context
@@ -27,13 +28,25 @@ def departamentos(request):
 
 def categoria(request, id):
     cat = Categoria.objects.filter(departamento_id = id)
-    context = {'categoria':cat}
+    depto = Departamento.objects.get(id=id)
+    context = {'categoria':cat,
+               'departamento':depto 
+                }
     return render(request,'categoria.html',context)   
+
+    
 
 def produto(request,id):
     prod = Produto.objects.filter(categoria_id = id)
-    context = {'produtos':prod}
-    return render(request,'produtos.html',context)       
+    categ = Categoria.objects.get(id=id)
+    context = {'produtos':prod,
+                'categoria': categ
+                }
+    return render(request,'produtos.html',context)  
 
 
+def produto_detalhe(request,id):
+    prode = Produto.objects.filter(categoria_id = id)
+    context = {'produto_detalhe':prode}
+    return render (request,'produto_detalhe.html',context)
 

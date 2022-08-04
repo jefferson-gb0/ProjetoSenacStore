@@ -1,21 +1,24 @@
+from html.entities import html5
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoria</title>
+    <title>Paginas de detalhes</title>
 </head>
 <body>
-    <h1>Categoria do Departamento {{departamento.nome}}</h1>
-    <ul>
+    <h1>nome do produto{{produto_detalhe.nome}}</h1>
+    {% comment %} <ul>
         {%for cat in categoria%}
         <li> <a href="/produtos/{{cat.id}}">[{{cat.departamento}}] {{cat.nome}}</a> </li>
         {%empty%}
             Nem uma categoria encontrada
         {%endfor%}
 
-    </ul>
+    </ul> {% endcomment %}
     
 </body>
 </html>
