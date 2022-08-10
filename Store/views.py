@@ -45,8 +45,13 @@ def produto(request,id):
     return render(request,'produtos.html',context)  
 
 
-def produto_detalhe(request,id):
-    prode = Produto.objects.get(id = id)
-    context = {'produto':prode}
-    return render (request,'produto_detalhe.html',context)
+def produto_detalhe(request,id):# linha que faz uma requisicao
+    prode = Produto.objects.get(id = id) # linha qua pega arquivo no model/ banco de daos
+    context = {'produto':prode} # linha que chama json na pagina html
+    return render (request,'produto_detalhe.html',context)# linha que chama pagina html
 
+def institucional (request):
+    return render(request,'institucional.html')
+
+def contato (request):
+    return render(request,'contato.html')   

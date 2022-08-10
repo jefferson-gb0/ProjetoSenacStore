@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    {% include 'includes/topo.html'%}
     <h1>{{produto.nome}}</h1>
     <h5>{{produto.categoria.departamento.nome}} >> {{produto.nome}}</h5>
     <Img src="{{produto.imagem.url}}" width="200"></Img>
