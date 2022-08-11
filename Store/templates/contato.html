@@ -11,7 +11,25 @@
 </head>
 <body>
     {% include 'includes/topo.html'%}
-    <h1>Hello world!</h1>
-    <h2>Seja bem vind{{artigo}} {{nome}}</h2>
+    <h1>Contato</h1>
+    <form method="post" action="{% url 'enviar_contato' %}">
+        {% csrf_token %}
+        Nome: <br> <input name ="nome">
+        <br><br>
+        E-mail: <br><input name="e-mail">
+        <br><br>
+        Telefone:<br><input name="telefone">
+        <br><br>
+        Assunto:<br><input name="assunto">
+        <br><br>
+        Mensagem:<br><input name="mensagem"></textarea>
+        <br><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Apagar">
+    </form>
+    {%if msg != '' %}
+        <p>{{msg}}</p>
+    {% endif %}
+    
 </body>
 </html>

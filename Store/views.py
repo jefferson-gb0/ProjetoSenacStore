@@ -1,10 +1,11 @@
 from distutils.errors import DistutilsTemplateError
+import email
 from http.client import HTTPResponse
 from math import prod
 from multiprocessing import context
 from django.shortcuts import render
 from Store.models import Departamento, Categoria, Produto
-
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -55,3 +56,19 @@ def institucional (request):
 
 def contato (request):
     return render(request,'contato.html')   
+
+def enviar_email (request):
+    nome = request.POST['nome']
+    telefone = request.POST['telefone']
+    assunto = request.POST['assunto']
+    mensagem = request.POST['mensagem']
+    remetente = request.POST['e-mail']
+    destinatario = ['jeffersongb0@gmail.com']
+    corpo = f"nome: {nome}\n telefone: {telefone}\n mensagem {mensagem}"
+    try:
+        send_mail (assunto,corpo,remetente,destinatario)
+        context = {'msg': 'E-mail enviado com sucesso!'}
+    except:
+        context = {'msg': 'Erro ao enviar e-mail!'} 
+    return render(request,'contato.html', context)  
+     
